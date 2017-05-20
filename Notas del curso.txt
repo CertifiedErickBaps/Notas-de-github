@@ -1,0 +1,91 @@
+Diccionario de Git-hub
+
+Arquitectura de arbol
+Es una estructura para armar la historia del proyecto, se divie por tres areas:
+1. Area local(Working area): Donde editas y trabajas tus proyectos.
+2. Area de preparacion(Stay in area): Escojemos cuales archivos van a ir en el siguiente
+commit, se encasulan todos los cambios.
+3. El repositorio: registro del proyecto donde todos pueden ver como se arma la historia.
+
+Todo esto se puede considerar un commit, asi se arma esta secuencia del proyecto
+
+Commit
+Que es lo que contiene un commit?
+Formado por 4 datos: Parent(de que ID sale el nuevo commit), Author, Date y Commit ID(SHA) lo ultimo tiene caracteres del 0 al 9 y de la e a la f
+
+Ramas
+Es una linea alterna del tiempo, en la historia de nuestro repositorio, se puede usar para crear nuevas ideas, bugs fixes o features, sin modificar la linea original
+
+¿Qué es una fusión?
+Una fusión es una mezcla de ambas ramas (master y experimental)
+
+¿Cómo hacer fusiones?
+Primero hay que situarse en la rama master(git checkout master) y luego hacer la
+fusión con git merge experimental
+
+¿Cómo se resuelven los conflictos?
+-Fast forward: Los gestores trabajaron archivos diferentes al repositorio.
+-Manual merge: Dos desarrolladores trabajan el mismo archivo en la fusión y 
+las mismas líneas de código.
+
+¿Qué es el rebase?
+Es una técnica que nos permite situar los commits de la rama experimental 
+delante de los commits de la rama master. Al hacer esto head queda posicionado 
+sobre el último commit de la rama experimental, por lo tanto hay que hacer un git checkout 
+master para volver al último commit de la rama master y luego un git merge experimental para 
+adelantar la rama master a la rama experimental e igualarla. De esa manera podemos comenzar a 
+trabajar con la rama master, en vez de trabajar con la rama experimental.
+
+¿Que es un workflow?
+Son todos los trabajos colaborativos, donde varias personas pueden crear un codigo mas facilmente
+
+¿Que es github?
+Es una plataforma en la cual desarrolladores suben sus proyectos de codigo, con el objetio de mejorarlos
+a travez de la colaboracion y gestion.
+Funciona de dos maneras: 
+Exploracion: Se refiere al termino de clonar(Descargar el proyecto) via SSH o HTTPS
+Colaboracion:
+
+
+comando universal: git help "comando desconocido"
+-> touch "nombre.txt" Crea un archivo en tu carpeta para despues darle un commit 
+
+-> git init  -> crea el repositorio en local que es un directorio .git que contiene todo el historial 
+
+-> git status ->para ver que esta en el repo y que no
+
+-> git add [archivos] -> stagin area, preparar lo que sera el commit 
+
+-> git add -A ->alista todos los archivos para el commit
+
+->  git commit –m "que es estecommit" -> crea el commit y queda agregado al historial del repo
+
+-> git log -> Te muestra todos los commits agregados con especificaciones
+
+-> git log --oneline -> Solo te muestra los nombres de lo commits
+
+-> git reset --hard "codigo del commit" -> En este comando borra los commits no deseados y borra seleccionando tu commit hhacia arriba
+
+-> git reset --mixed "codigo del commit" -> Compilar tus commits con todos los Ncommits que tenias, solo que no modifica en tu working area checar git status
+
+-> git reset --soft "codigo commit" -> se prepara directamente sin un git add
+
+-> git config --global alias.splog "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'" --all
+
+-> git superlog -> Te muestra detalladamente las areas de trabajo o commits
+
+-> rm -rf .git -> borrar todo los archivos en git
+
+-> git checkout -b "nombre" crear una rama 
+
+->  git checkout -b ramarebase crear una rama despues del master sin importar el regreso de ramarebase
+
+-> git commit -am "Nombre del commit" Es el mas resumido para no poner add -A
+
+-> git commit -m "ljasdkl" --amend sustituye el commit anterior haciendo que se modifique el commit
+
+-> git fetch origin "mete los archivos nuevos al area de origin/master"
+
+-> git merge origin/master "mete los archivos a tu carpeta original donde los habias dejado"
+
+-> git push origin master "envia tus archivos por remoto a github"
